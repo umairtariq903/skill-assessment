@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('showQuotes', [QuotesController::class, 'showQuotes'])->name('showQuotes');
+Route::post('markAsFavourite', [QuotesController::class, 'saveFavouriteQuotes'])->name('markAsFavourite');
+Route::get('showFavourite', [QuotesController::class, 'showFavourite'])->name('showFavourite');
+Route::post('deleteFavourite', [QuotesController::class, 'deleteFavourite'])->name('deleteFavourite');
+

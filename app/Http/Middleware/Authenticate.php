@@ -14,8 +14,22 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        dd('hello');
         if (! $request->expectsJson()) {
             return route('login');
         }
+    }
+    public function handle($request, Closure $next)
+    {
+        $username = 'umair';
+        $password = 'tariq';
+
+        if ($request->getUser() != $username || $request->getPassword() != $password) {
+            dd('hello');
+            $headers = array('WWW-Authenticate' => 'Basic');
+            return response('Unauthorized', 401, $headers);
+        }
+        dd('hello');
+        return $next($request);
     }
 }
