@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::post('showQuotes', [QuotesController::class, 'showQuotes'])->name('showQuotes');
+Route::get('refreshQuotes', [QuotesController::class, 'showQuotes'])->name('refreshQuotes');
 Route::post('markAsFavourite', [QuotesController::class, 'saveFavouriteQuotes'])->name('markAsFavourite');
 Route::get('showFavourite', [QuotesController::class, 'showFavourite'])->name('showFavourite');
 Route::post('deleteFavourite', [QuotesController::class, 'deleteFavourite'])->name('deleteFavourite');
