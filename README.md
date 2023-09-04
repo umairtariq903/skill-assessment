@@ -3,13 +3,17 @@ umairtariq903@yahoo.com
 
 Hi, I have completed all the requirements for this project.
 
-2 web pages which are password secured and back and forth navigation
-
-3 Api's which are token secured and Laravel Auth is used for the authentication of API's
+All the backend code is written laravel
+ All the frontend code is written in vue js which calls the api's sending token to get data and show data to user and user can manipulate that data
 
 2 classes for test cases , 1 for web and other for Api's(all the routes have test cases)
 
-Here is the video of complete working functionality
+Here is the video of complete working functionality using Vue js 
+
+https://drive.google.com/file/d/1-ToPzIJr4saI7bXtU_cXIb2qlZhVeesW/view
+
+Here is the video which shows the passed test cases and web pages built using laravel blade(provided both views , laravel frontend and vue frontend)
+
 https://drive.google.com/file/d/1qVQ_v4CYOHUORLIv-i03RIyuS08NGFMf/view
 
 Technical Details:

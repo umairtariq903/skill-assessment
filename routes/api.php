@@ -16,11 +16,14 @@ use App\Http\Controllers\QuotesController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
+Route::post('getUser/{password}', [QuotesController::class, 'getUser']);
 Route::middleware('auth:api')->get('getFavourite', [QuotesController::class, 'listAllFavourite'])->name('getFavourite');
 Route::middleware('auth:api')->get('getQuotes/{number}', [QuotesController::class, 'listSpecificQuotes'])->name('getQuotes');
 
 Route::middleware('auth:api')->post('deleteFavourite/{id}', [QuotesController::class, 'deleteFavouriteApi'])->name('deleteFavourite');
+
+Route::middleware('auth:api')->post('saveFavourite/{markedFavourite}', [QuotesController::class, 'saveFavouriteQuotesApi'])->name('saveFavourite');

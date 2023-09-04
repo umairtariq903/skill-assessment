@@ -53,13 +53,29 @@ class QuotesController extends Controller
     /**
      * save favourite quotes in database
      */
-    public function saveFavouriteQuotes(Request $request)
+    public function saveFavouriteQuotes(Request $request,$markedFavourite=null)
     {
+        //dd($markedFavourite);
     	$favouriteModel = New Favourite();
     	$favouriteQuote = $request->markedFavourite;
     	$favouriteModel->quote = $favouriteQuote;
     	$favouriteModel->save();
     	return Redirect::to('showFavourite');
+    }
+
+    /**
+     * save favourite quotes APi in database
+     */
+    public function saveFavouriteQuotesApi($markedFavourite)
+    {
+        $favouriteModel = New Favourite();
+        $favouriteQuote = $markedFavourite;
+        $favouriteModel->quote = $favouriteQuote;
+        $favouriteModel->save();
+        return [
+            "status" => 1,
+            "msg" => "Quote saved as favourite successfully"
+        ];
     }
 
     /**
@@ -126,5 +142,26 @@ class QuotesController extends Controller
             "status" => 1,
             "msg" => "Quote deleted successfully"
         ];
+    }
+
+    /**
+     * get user api
+     */
+    public function getUser($password){
+        $user = User::where('password',$password)->first();
+        if ($user) {
+            return [
+                "status" => 1,
+                "msg" => "User logged In",
+                "data" => $user
+            ];
+        }
+        else{
+            return [
+                "status" => 0,
+                "msg" => "Unauthorized"
+            ];
+        }
+        
     }
 }
