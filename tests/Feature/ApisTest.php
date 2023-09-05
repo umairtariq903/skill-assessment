@@ -16,7 +16,7 @@ class ApisTest extends TestCase
     public function test_getQuotesApi()
     {
         $token = 'c5m7NTj6AlRj6pxmWCDvyVe48ArKB6XjQbfxR96tDj4OOH5VGDb4NiYSxTeb';
-        $response = $this->get('/api/getQuotes/6?api_token='.$token);
+        $response = $this->get('/api/quotes/6?api_token='.$token);
         $response->assertStatus(200);
     }
 
@@ -28,7 +28,7 @@ class ApisTest extends TestCase
     public function test_getFavouriteApi()
     {
         $token = 'c5m7NTj6AlRj6pxmWCDvyVe48ArKB6XjQbfxR96tDj4OOH5VGDb4NiYSxTeb';
-        $response = $this->get('/api/getFavourite?api_token='.$token);
+        $response = $this->get('/api/favourite?api_token='.$token);
         $response->assertStatus(200);
     }
 }

@@ -13,9 +13,11 @@
 
 <script>
 import { ref,onMounted,watch } from 'vue';
-import   loginServices from '../services/loginServices'
+import   loginServices from '../services/loginServices';
+import   quoteServices from '../services/quoteServices';
 import {useRouter} from "vue-router";
-import { useAuthStore } from '../stores/auth'; // Import the Pinia store
+import { useAuthStore } from '../stores/auth'; 
+import { useQuotesStore } from '../stores/quotes';// Import the Pinia store
 
 
 export default {
@@ -23,7 +25,7 @@ export default {
     const password = ref('');
     const router = useRouter();
     const authStore = useAuthStore(); // Access the Pinia store
-
+    const quoteStore = useQuotesStore()
     const submit = async() => {
           const payload = {
             password: password.value,
@@ -31,12 +33,26 @@ export default {
 
 
           await loginServices.login(payload)
+            .then(async response=>{
+                authStore.setApiToken(response.data.data.api_token);
+                await getQuotes(response.data.data.api_token);
+                router.push('/Quote');
+            })
+            .catch(error => {
+              
+            });
+           }
+
+
+        const getQuotes = async(value) => {
+          await quoteServices.getQuotes(value)
               .then(async response=>{
-                  authStore.setApiToken(response.data.data.api_token);
-                  router.push('/Quote');
+                quoteStore.setQuotes(response.data.data);
               })
               .catch(error => {
-                
+                if(error.response.status==422){
+                 alert("Enter correct Password")
+                }
               });
         }
 

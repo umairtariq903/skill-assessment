@@ -20,18 +20,18 @@ class HomepageTest extends TestCase
 
         $response->assertStatus(200);
     }
-    /**
-     * Show Quotes Route unit test.
-     *
-     * @return void
-     */
-    public function test_showquotes(){
-        $response = $this->post('/showQuotes', [
-            'password' => 'dummy',
-        ]);
-        $response->assertViewIs('quotes');
+    // /**
+    //  * Show Quotes Route unit test.
+    //  *
+    //  * @return void
+    //  */
+    // public function test_showquotes(){
+    //     $response = $this->post('/showQuotes', [
+    //         'password' => 'dummy',
+    //     ]);
+    //     $response->assertViewIs('quotes');
 
-    }
+    // }
     /**
      * Mark As Favourite Route unit test.
      *

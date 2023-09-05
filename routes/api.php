@@ -20,10 +20,10 @@ use App\Http\Controllers\QuotesController;
 //     return $request->user();
 // });
 
-Route::post('getUser/{password}', [QuotesController::class, 'getUser']);
-Route::middleware('auth:api')->get('getFavourite', [QuotesController::class, 'listAllFavourite'])->name('getFavourite');
-Route::middleware('auth:api')->get('getQuotes/{number}', [QuotesController::class, 'listSpecificQuotes'])->name('getQuotes');
+Route::post('user/{password}', [QuotesController::class, 'getUser']);
+Route::middleware('auth:api')->get('favourite', [QuotesController::class, 'listAllFavourite'])->name('favourite');
+Route::middleware('auth:api')->get('quotes/{number}/{refresh?}', [QuotesController::class, 'listSpecificQuotes'])->name('quotes');
 
-Route::middleware('auth:api')->post('deleteFavourite/{id}', [QuotesController::class, 'deleteFavouriteApi'])->name('deleteFavourite');
+Route::middleware('auth:api')->delete('favourite/{id}', [QuotesController::class, 'deleteFavouriteApi'])->name('favourite');
 
-Route::middleware('auth:api')->post('saveFavourite/{markedFavourite}', [QuotesController::class, 'saveFavouriteQuotesApi'])->name('saveFavourite');
+Route::middleware('auth:api')->post('favourite/{markedFavourite}', [QuotesController::class, 'saveFavouriteQuotesApi'])->name('favourite');

@@ -42,7 +42,8 @@
 import { ref, onMounted,watch } from 'vue';
 import {useRouter} from "vue-router";
 import   quoteServices from '../services/quoteServices';
-import { useAuthStore } from '../stores/auth'; // Import the Pinia store
+import { useAuthStore } from '../stores/auth'; 
+import { useQuotesStore } from '../stores/quotes';// Import the Pinia store
 
 export default {
   setup() {
@@ -50,6 +51,7 @@ export default {
     const router = useRouter();
     const authStore = useAuthStore(); // Access the Pinia store
     const user_role = ref('');
+    const quoteStore = useQuotesStore()
 
     watch(async () => {
             try {
@@ -77,7 +79,9 @@ export default {
     const getQuotes = async() => {
           await quoteServices.getQuotes(user_role.value)
               .then(async response=>{
-                quotes.value = response.data.data
+               quoteStore.clearQuotes();
+                quoteStore.setQuotes(response.data.data);
+                Quotes();
               })
               .catch(error => {
                 if(error.response.status==422){
@@ -85,10 +89,14 @@ export default {
                 }
               });
         }
+        const Quotes = async() => {
+           quotes.value=quoteStore.getStoredQuotes;
+        }
 
   onMounted(() => {
-      getQuotes();
+    Quotes();
    });
+
 
     return {
       quotes,

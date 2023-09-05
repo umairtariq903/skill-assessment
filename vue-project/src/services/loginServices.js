@@ -7,6 +7,6 @@ export const authClient = axios.create({
 
 export default {
     async login(payload) {
-        return await authClient.post("/getUser/"+payload.password);
+        return await authClient.post("/user/"+payload.password);
     },
 };

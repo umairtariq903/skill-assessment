@@ -10,11 +10,7 @@ All the backend code is written laravel
 
 Here is the video of complete working functionality using Vue js 
 
-https://drive.google.com/file/d/1-ToPzIJr4saI7bXtU_cXIb2qlZhVeesW/view
-
-Here is the video which shows the passed test cases and web pages built using laravel blade(provided both views , laravel frontend and vue frontend)
-
-https://drive.google.com/file/d/1qVQ_v4CYOHUORLIv-i03RIyuS08NGFMf/view
+https://drive.google.com/file/d/1RRaUAeCJXLKLo7V-HVepGQc_qzPmlco6/view
 
 Technical Details:
 

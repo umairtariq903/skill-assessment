@@ -7,15 +7,15 @@ export const authClient = axios.create({
 
 export default {
     async getQuotes(payload) {
-        return await authClient.get("/getQuotes/5?api_token="+payload);
+        return await authClient.get("/quotes/5/1?api_token="+payload);
     },
     async saveFavourite(payload) {
-        return await authClient.post("/saveFavourite/"+payload.quote+"?api_token="+payload.token);
+        return await authClient.post("/favourite/"+payload.quote+"?api_token="+payload.token);
     },
     async getFavourite(payload) {
-        return await authClient.get("/getFavourite/?api_token="+payload);
+        return await authClient.get("/favourite/?api_token="+payload);
     },
     async deleteFavourite(payload) {
-        return await authClient.post("/deleteFavourite/"+payload.id+"?api_token="+payload.token);
+        return await authClient.delete("/favourite/"+payload.id+"?api_token="+payload.token);
     },
 };
