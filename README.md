@@ -38,40 +38,28 @@ https://drive.google.com/file/d/1RRaUAeCJXLKLo7V-HVepGQc_qzPmlco6/view
    ./vendor/bin/sail artisan key:generate
    ```
 
-5. Run Database Migrations:
-
-   ```shell
-   ./vendor/bin/sail artisan migrate
-   ```
-
-6. Seed Database with Data:
-
-   ```shell
-   ./vendor/bin/sail artisan db:seed
-   ```
-
-7. Switch to Vue.js folder
+5. Switch to Vue.js folder
 
    ```shell
    cd vue-project
    ```
 
-8. Install Vue.js dependencies
+6. Install Vue.js dependencies
 
    ```shell
    npm i
    ```
 
-9. Run Vue.js frontend
+7. Run Vue.js frontend
 
    ```shell
    npm run dev
    ```
 
-10. Access the frontend on this URL `http://localhost:5173/`
+8. Access the frontend on this URL `http://localhost:5173/`
 
-11. Use password `dummy` as login password
+9. Use password `dummy` as login password
 
 ### Other details
 
-I have added comments on the controller and explained the purpose of each method. I have used this api key in my test cases 'c5m7NTj6AlRj6pxmWCDvyVe48ArKB6XjQbfxR96tDj4OOH5VGDb4NiYSxTeb'
+I have added comments on the controller and explained the purpose of each method. I have used this api key in my test cases `c5m7NTj6AlRj6pxmWCDvyVe48ArKB6XjQbfxR96tDj4OOH5VGDb4NiYSxTeb`
